@@ -1,0 +1,66 @@
+# ADDED: GitHub Actions CI for Salesforce DX - check-only deploy and tests with coverage gate
+name: salesforce-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node (for CLI install helpers)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install Salesforce CLI
+        run: |
+          npm install --global sfdx-cli
+          sfdx --version
+
+      - name: Authenticate to Salesforce using SFDX auth URL
+        env:
+          SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
+        run: |
+          if [ -z "$SFDX_AUTH_URL" ]; then echo "SFDX_AUTH_URL secret is not set"; exit 1; fi
+          echo "$SFDX_AUTH_URL" > auth.txt
+          sfdx auth:sfdxurl:store -f auth.txt -a ci -s
+          rm -f auth.txt
+
+      - name: Check-only deploy (validate)
+        run: |
+          sfdx force:source:deploy -u ci -x manifest/package.xml -c -l RunLocalTests
+
+      - name: Run Apex tests with coverage (JSON)
+        run: |
+          sfdx force:apex:test:run -u ci -r json -c -w 60 > apex-tests.json
+          cat apex-tests.json
+
+      - name: Install jq for coverage parsing
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Enforce 75% org-wide coverage
+        run: |
+          COVERAGE=$(cat apex-tests.json | jq -r '.result.summary.orgWideCoverage // 0')
+          echo "Org-wide coverage: $COVERAGE%"
+          COV_INT=${COVERAGE%.*}
+          if [ "$COV_INT" -lt 75 ]; then echo "Coverage below 75%"; exit 2; fi
+
+      - name: Publish TAP results
+        run: |
+          sfdx force:apex:test:report -u ci -i $(cat apex-tests.json | jq -r '.result.summary.testRunId') -r tap > apex-tests.tap || true
+          echo "Apex test report generated."
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: apex-results
+          path: |
+            apex-tests.json
+            apex-tests.tap
+
+

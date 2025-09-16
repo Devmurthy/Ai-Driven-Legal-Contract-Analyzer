@@ -1,0 +1,64 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Contract__c", "referenceId": "ContractRef1" },
+      "Title__c": "Master Services Agreement",
+      "Status__c": "Draft",
+      "Contract_Type__c": "Services"
+    },
+    {
+      "attributes": { "type": "Contract__c", "referenceId": "ContractRef2" },
+      "Title__c": "Software License Agreement",
+      "Status__c": "Approved",
+      "Contract_Type__c": "Software License"
+    },
+    {
+      "attributes": { "type": "Contract__c", "referenceId": "ContractRef3" },
+      "Title__c": "NDA",
+      "Status__c": "Rejected",
+      "Contract_Type__c": "NDA"
+    },
+    {
+      "attributes": { "type": "Clause__c", "referenceId": "ClauseRef1" },
+      "Title__c": "Payment Terms",
+      "Status__c": "Draft",
+      "Clause_Type__c": "Payment",
+      "Risk_Level__c": "Low",
+      "Contract__c": "@ContractRef1"
+    },
+    {
+      "attributes": { "type": "Clause__c", "referenceId": "ClauseRef2" },
+      "Title__c": "Liability Cap",
+      "Status__c": "Negotiated",
+      "Clause_Type__c": "Liability",
+      "Risk_Level__c": "Medium",
+      "Contract__c": "@ContractRef1"
+    },
+    {
+      "attributes": { "type": "Clause__c", "referenceId": "ClauseRef3" },
+      "Title__c": "Termination for Convenience",
+      "Status__c": "Finalized",
+      "Clause_Type__c": "Termination",
+      "Risk_Level__c": "Low",
+      "Contract__c": "@ContractRef2"
+    },
+    {
+      "attributes": { "type": "Clause__c", "referenceId": "ClauseRef4" },
+      "Title__c": "Confidentiality",
+      "Status__c": "Negotiated",
+      "Clause_Type__c": "Confidentiality",
+      "Risk_Level__c": "Low",
+      "Contract__c": "@ContractRef2"
+    },
+    {
+      "attributes": { "type": "Clause__c", "referenceId": "ClauseRef5" },
+      "Title__c": "Governing Law",
+      "Status__c": "Draft",
+      "Clause_Type__c": "General",
+      "Risk_Level__c": "Low",
+      "Contract__c": "@ContractRef3"
+    }
+  ]
+}
+
+

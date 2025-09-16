@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <description>Send email notifications when contract or clause status changes to Approved or Rejected</description>
+    <label>Status Change Notification Flow</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Record_Type</targetReference>
+        </connector>
+    </start>
+    <subflows>
+        <name>Check_Record_Type</name>
+        <locationX>50</locationX>
+        <locationY>136</locationY>
+        <processType>AutoLaunchedFlow</processType>
+        <flowName>Check_Record_Type_Subflow</flowName>
+        <connector>
+            <targetReference>Check_Status_Change</targetReference>
+        </connector>
+    </subflows>
+    <decisions>
+        <name>Check_Status_Change</name>
+        <locationX>50</locationX>
+        <locationY>272</locationY>
+        <defaultConnector>
+            <targetReference>End_Flow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Approved_Status</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Approval_Notification</targetReference>
+            </connector>
+            <label>Approved Status</label>
+        </rules>
+        <rules>
+            <name>Rejected_Status</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Rejection_Notification</targetReference>
+            </connector>
+            <label>Rejected Status</label>
+        </rules>
+    </decisions>
+    <actionCalls>
+        <name>Send_Approval_Notification</name>
+        <locationX>50</locationX>
+        <locationY>408</locationY>
+        <actionName>EmailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputAssignments>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Owner.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Contract/Clause Approved: {!$Record.Name}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Great news! The following item has been approved:
+                
+Record: {!$Record.Name}
+Title: {!$Record.Title__c}
+Type: {!$Record.Contract_Type__c}
+Status: {!$Record.Status__c}
+Approved By: {!$User.Name}
+Approved Date: {!$System.OriginDateTime}
+
+Please review the approved item in Salesforce.
+
+Best regards,
+AI Legal Contract Analyzer System</stringValue>
+            </value>
+        </inputAssignments>
+        <connector>
+            <targetReference>End_Flow</targetReference>
+        </connector>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Rejection_Notification</name>
+        <locationX>50</locationX>
+        <locationY>544</locationY>
+        <actionName>EmailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputAssignments>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Owner.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Contract/Clause Rejected: {!$Record.Name}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Please note that the following item has been rejected:
+                
+Record: {!$Record.Name}
+Title: {!$Record.Title__c}
+Type: {!$Record.Contract_Type__c}
+Status: {!$Record.Status__c}
+Rejected By: {!$User.Name}
+Rejected Date: {!$System.OriginDateTime}
+
+Please review the rejected item and take necessary action.
+
+Best regards,
+AI Legal Contract Analyzer System</stringValue>
+            </value>
+        </inputAssignments>
+        <connector>
+            <targetReference>End_Flow</targetReference>
+        </connector>
+    </actionCalls>
+    <recordUpdates>
+        <name>Update_Notification_Sent</name>
+        <locationX>50</locationX>
+        <locationY>680</locationY>
+        <inputAssignments>
+            <name>id</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Status__c</name>
+            <value>
+                <elementReference>$Record.Status__c</elementReference>
+            </value>
+        </inputAssignments>
+        <connector>
+            <targetReference>End_Flow</targetReference>
+        </connector>
+    </recordUpdates>
+    <end>
+        <name>End_Flow</name>
+        <locationX>50</locationX>
+        <locationY>816</locationY>
+    </end>
+</Flow>

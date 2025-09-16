@@ -1,0 +1,8 @@
+<!-- ADDED: Sample Email Template body for Contract status change (unfiled$public) -->
+Contract {!Contract__c.Name} status changed to {!Contract__c.Status__c}.
+
+Title: {!Contract__c.Title__c}
+Type: {!Contract__c.Contract_Type__c}
+
+This is a sample email template for demo purposes.
+

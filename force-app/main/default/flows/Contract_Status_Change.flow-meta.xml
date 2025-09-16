@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ADDED: Record-Triggered Flow for Contract status changes -->
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>60.0</apiVersion>
+  <label>Contract Status Change</label>
+  <processType>Flow</processType>
+  <status>Active</status>
+
+  <recordUpdates>
+    <name>Record_Trigger</name>
+    <label>Record Trigger</label>
+  </recordUpdates>
+
+  <variables>
+    <name>OldStatus</name>
+    <dataType>String</dataType>
+    <isCollection>false</isCollection>
+    <isInput>false</isInput>
+    <isOutput>false</isOutput>
+  </variables>
+
+  <recordTrigger>
+    <object>Contract__c</object>
+    <triggerType>Update</triggerType>
+    <conditionLogic>and</conditionLogic>
+    <recordFilterType>Updated</recordFilterType>
+    <criteria>
+      <field>Contract__c.Status__c</field>
+      <operator>Changed</operator>
+    </criteria>
+  </recordTrigger>
+
+  <actionCalls>
+    <name>Send_Email</name>
+    <actionName>ContractStatusChange_Alert</actionName>
+    <actionType>EmailAlert</actionType>
+    <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+  </actionCalls>
+
+  <creates>
+    <name>Create_ContractStatusEvent</name>
+    <label>Publish ContractStatusEvent__e</label>
+    <object>ContractStatusEvent__e</object>
+    <inputAssignments>
+      <field>ContractId__c</field>
+      <value>{!$Record.Id}</value>
+    </inputAssignments>
+    <inputAssignments>
+      <field>OldStatus__c</field>
+      <value>{!OldStatus}</value>
+    </inputAssignments>
+    <inputAssignments>
+      <field>NewStatus__c</field>
+      <value>{!$Record.Status__c}</value>
+    </inputAssignments>
+  </creates>
+
+</Flow>
+
+

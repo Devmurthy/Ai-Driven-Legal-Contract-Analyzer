@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ADDED: Workflow metadata hosting Email Alert for Clause status change -->
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+  <alerts>
+    <fullName>ClauseStatusChange_Alert</fullName>
+    <description>Email alert to notify related Contract Owner when clause status changes.</description>
+    <recipients>
+      <recipient>relatedOwner</recipient>
+    </recipients>
+    <senderType>CurrentUser</senderType>
+    <template>unfiled$public/ClauseStatusChange</template>
+  </alerts>
+</Workflow>
+
+

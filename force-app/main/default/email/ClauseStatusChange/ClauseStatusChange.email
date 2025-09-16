@@ -1,0 +1,9 @@
+<!-- ADDED: Sample Email Template body for Clause status change -->
+Clause {!Clause__c.Name} status changed to {!Clause__c.Status__c}.
+
+Title: {!Clause__c.Title__c}
+Type: {!Clause__c.Clause_Type__c}
+Parent Contract: {!Clause__c.Contract__c}
+
+This is a sample email template for demo purposes.
+

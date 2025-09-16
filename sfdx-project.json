@@ -1,0 +1,19 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "AI Legal Contract Analyzer",
+      "versionName": "ver 1.0",
+      "versionNumber": "1.0.0.NEXT"
+    }
+  ],
+  "name": "Legal analyzer",
+  "namespace": "legalanalyzer",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "64.0",
+  "packageAliases": {
+    "AI Legal Contract Analyzer": "0Ho000000000000AAA",
+    "AI Legal Contract Analyzer@1.0.0-1": "04t000000000000AAA"
+  }
+}

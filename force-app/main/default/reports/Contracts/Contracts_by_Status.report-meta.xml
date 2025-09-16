@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ADDED: Sample report for Contracts by Status -->
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+  <format>Summary</format>
+  <name>Contracts by Status</name>
+  <reportType>Contract__c</reportType>
+  <columns>
+    <field>Contract__c.Name</field>
+    <field>Contract__c.Owner:User.FullName</field>
+    <field>Contract__c.Status__c</field>
+  </columns>
+  <groupingsDown>
+    <name>Contract__c.Status__c</name>
+    <sortOrder>Asc</sortOrder>
+  </groupingsDown>
+</Report>
+
+

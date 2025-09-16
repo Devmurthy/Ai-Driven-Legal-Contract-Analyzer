@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ADDED: Metadata for Clause status change Email Template (unfiled$public) -->
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+  <available>true</available>
+  <description>Sample email template used by Clause Status Change Flow</description>
+  <encodingKey>UTF-8</encodingKey>
+  <name>ClauseStatusChange</name>
+  <subject>Clause Status Updated: {!Clause__c.Name}</subject>
+  <style>none</style>
+  <type>text</type>
+</EmailTemplate>
+
+

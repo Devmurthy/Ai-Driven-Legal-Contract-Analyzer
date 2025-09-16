@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ADDED: Metadata for Contract status change Email Template -->
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+  <available>true</available>
+  <description>Sample email template used by Contract Status Change Flow</description>
+  <encodingKey>UTF-8</encodingKey>
+  <name>ContractStatusChange</name>
+  <subject>Contract Status Updated: {!Contract__c.Name}</subject>
+  <style>none</style>
+  <type>text</type>
+</EmailTemplate>
+
+
