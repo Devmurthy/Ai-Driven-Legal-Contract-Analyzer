@@ -1,4 +1,74 @@
 # AI Legal Contract Analyzer — Salesforce
+Legal Contract Analyzer Project Phases
+Phase 1: Project Overview & Requirement Gathering
+
+Define project purpose and business value
+
+Identify stakeholders and beneficiary users
+
+Outline objectives such as automated clause extraction, risk analysis, AI negotiation, and compliance features
+
+Phase 2: Data Model Design
+
+Define custom Salesforce objects: Contract, Clause, NegotiationSuggestion
+
+Establish master-detail relationships and lookups
+
+Configure validation rules and picklists for statuses, risk levels, clause types
+
+Phase 3: Business Logic Implementation
+
+Develop Apex classes and services: ContractAnalysisService, AINegotiationService, StatusNotificationService
+
+Implement triggers: ContractStatusTrigger, ClauseStatusTrigger
+
+Automate status updates, risk scoring, AI negotiation suggestions generation
+
+Phase 4: User Interface & Lightning Web Components (LWC)
+
+Design and develop LWCs such as contractDashboard to display KPIs and risk charts
+
+Create page layouts and tabs for Contracts, Clauses, Suggestions
+
+Provide a rich, interactive experience for users
+
+Phase 5: Testing & Validation
+
+Write comprehensive Apex test classes covering services, triggers, and controllers
+
+Perform UI integration testing (LWC wiring with Apex)
+
+Achieve high org-wide Apex test coverage (81%+)
+
+Phase 6: Automation & Notifications
+
+Configure platform events (StatusChangeEvent) for real-time notifications
+
+Develop email templates for status change alerts and negotiation messages
+
+Design record-triggered flows for notifying stakeholders optionally
+
+Phase 7: Reporting & Dashboards
+
+Create reports on contract risks, clause distributions, and negotiation statuses
+
+Build dashboards for legal analytics and management overview
+
+Phase 8: Deployment & Documentation
+
+Prepare change sets or SFDX deployments
+
+Document architecture, data model, business logic, and user guides
+
+Phase 9: Future Enhancements Planning
+
+Plan advanced AI integrations for natural language processing and risk scoring
+
+Consider batch or queueable Apex for large-scale processing
+
+Enhance dashboards with deeper analytics and trend insights
+
+This phased approach covers the end-to-end project lifecycle from requirements to deployment and ongoing improvement for the legal contract analyzer system on Salesforce. Let me know if more details on any phase are needed.
 
 ## ADDED: Flows, Platform Events, Email Templates, and Apex Subscribers
 
@@ -431,70 +501,6 @@ jobs:
 - 📋 Multi-language support
 - 📋 Enterprise SSO integration
 
-## 🆘 Troubleshooting
-
-### Common Issues
-
-1. **Deployment Errors**:
-   - Check API version compatibility
-   - Verify permission sets and profiles
-   - Review validation rules and triggers
-
-2. **Flow Errors**:
-   - Check flow activation status
-   - Verify field references and variables
-   - Review flow debug logs
-
-3. **LWC Errors**:
-   - Check JavaScript console for errors
-   - Verify wire method implementations
-   - Review component metadata
-
-4. **AI Service Errors**:
-   - Verify external service configuration
-   - Check API key validity
-   - Review callout limits and timeouts
-
-### Debug Tools
-- Flow Debug Mode
-- Apex Debug Logs
-- Lightning Inspector
-- Salesforce CLI logs
-
-## 📞 Support
-
-### Documentation
-- Salesforce Trailhead modules
-- Lightning Web Components Guide
-- Apex Developer Guide
-- Flow Builder Guide
-
-### Community Resources
-- Salesforce Developer Community
-- Trailblazer Community
-- Stack Overflow
-- GitHub repositories
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
-
-### Development Guidelines
-- Follow Salesforce coding standards
-- Write comprehensive tests
-- Document all public methods
-- Use meaningful variable names
-- Follow the established architecture patterns
-
----
 
 **Built with ❤️ for legal professionals using Salesforce**
 
