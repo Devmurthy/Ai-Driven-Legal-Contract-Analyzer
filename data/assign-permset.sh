@@ -24,3 +24,7 @@ sfdx force:user:permset:assign -u "$ORG_ALIAS" -n Legal_Analyzer_User -o "$TARGE
 echo "Done."
 
 
+
+
+
+

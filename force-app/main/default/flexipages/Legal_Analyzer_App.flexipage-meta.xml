@@ -1,67 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ADDED: Lightning App Page with recent lists, reports, and dashboard -->
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
-  <apiVersion>60.0</apiVersion>
   <description>AI Legal Contract Analyzer App Page</description>
   <flexiPageRegions>
-    <componentInstances>
-      <componentInstanceProperties>
-        <name>parentList</name>
-        <value>Contract__c</value>
-      </componentInstanceProperties>
-      <componentName>force:relatedListContainer</componentName>
-    </componentInstances>
     <name>header</name>
     <type>Region</type>
   </flexiPageRegions>
   <flexiPageRegions>
-    <componentInstances>
-      <componentInstanceProperties>
-        <name>pageSize</name>
-        <value>10</value>
-      </componentInstanceProperties>
-      <componentInstanceProperties>
-        <name>scope</name>
-        <value>Contract__c</value>
-      </componentInstanceProperties>
-      <componentName>flexipage:recentItems</componentName>
-    </componentInstances>
-    <componentInstances>
-      <componentInstanceProperties>
-        <name>pageSize</name>
-        <value>10</value>
-      </componentInstanceProperties>
-      <componentInstanceProperties>
-        <name>scope</name>
-        <value>Clause__c</value>
-      </componentInstanceProperties>
-      <componentName>flexipage:recentItems</componentName>
-    </componentInstances>
     <name>main</name>
     <type>Region</type>
   </flexiPageRegions>
   <flexiPageRegions>
-    <componentInstances>
-      <componentInstanceProperties>
-        <name>reportName</name>
-        <value>Contracts/Contracts_by_Status</value>
-      </componentInstanceProperties>
-      <componentName>runtime_sales_analytics:reportChart</componentName>
-    </componentInstances>
-    <componentInstances>
-      <componentInstanceProperties>
-        <name>reportName</name>
-        <value>Clauses/Clauses_by_Status</value>
-      </componentInstanceProperties>
-      <componentName>runtime_sales_analytics:reportChart</componentName>
-    </componentInstances>
-    <componentInstances>
-      <componentInstanceProperties>
-        <name>dashboardName</name>
-        <value>Legal_Analyzer_Dashboard</value>
-      </componentInstanceProperties>
-      <componentName>flexipage:dashboard</componentName>
-    </componentInstances>
     <name>sidebar</name>
     <type>Region</type>
   </flexiPageRegions>

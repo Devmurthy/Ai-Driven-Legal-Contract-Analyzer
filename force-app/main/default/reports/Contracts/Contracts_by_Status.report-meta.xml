@@ -6,13 +6,18 @@
   <reportType>Contract__c</reportType>
   <columns>
     <field>Contract__c.Name</field>
+  </columns>
+  <columns>
     <field>Contract__c.Owner:User.FullName</field>
-    <field>Contract__c.Status__c</field>
   </columns>
   <groupingsDown>
     <name>Contract__c.Status__c</name>
     <sortOrder>Asc</sortOrder>
   </groupingsDown>
 </Report>
+
+
+
+
 
 

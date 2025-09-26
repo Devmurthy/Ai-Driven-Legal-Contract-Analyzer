@@ -6,13 +6,18 @@
   <reportType>Clause__c</reportType>
   <columns>
     <field>Clause__c.Name</field>
+  </columns>
+  <columns>
     <field>Clause__c.Contract__c</field>
-    <field>Clause__c.Status__c</field>
   </columns>
   <groupingsDown>
     <name>Clause__c.Status__c</name>
     <sortOrder>Asc</sortOrder>
   </groupingsDown>
 </Report>
+
+
+
+
 
 

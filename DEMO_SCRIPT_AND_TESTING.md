@@ -17,7 +17,7 @@
 3. **Highlight Custom Objects** → Point out "Legal Contract" and "Contract Clause"
 
 **Script:**
-*"I've created a comprehensive legal contract management system with two main custom objects: Legal Contract for managing contract metadata, and Contract Clause for analyzing individual clauses within those contracts. The system includes AI-powered risk assessment and negotiation suggestions."*
+*"I've created a comprehensive legal contract management system with two main custom objectsa: Legal Contract for managing contract metadata, and Contract Clause for analyzing individual clauses within those contracts. The system includes AI-powered risk assessment and negotiation suggestions."*
 
 ### **Part 2: Data Model Demonstration (2 minutes)**
 

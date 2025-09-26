@@ -113,3 +113,31 @@
 - LWC: `force-app/main/default/lwc/contractDashboard/*`
 - Tests: `force-app/main/default/classes/*Test.cls`
 - Platform Event: `force-app/main/default/objects/Status_Change_Event__e/*`
+
+## 10. Screenshot Documentation
+A comprehensive screenshot guide has been created to document the application's functionality and technical implementation. The guide includes:
+
+- **27 detailed screenshots** covering all major components
+- **Exact navigation instructions** for each screenshot
+- **Technical demonstrations** of Salesforce platform capabilities
+- **Consistent formatting** and captioning guidelines
+
+**Screenshot Guide Location:** `SCREENSHOT_GUIDE.md`
+
+### Key Screenshot Categories:
+1. **Application Navigation** - Custom app and tab structure
+2. **Data Model** - Custom objects, fields, and relationships
+3. **Business Logic** - Apex classes and triggers
+4. **User Interface** - Lightning Web Components
+5. **Automation** - Flows and platform events
+6. **Testing** - Test execution and code coverage
+7. **Security** - Permission sets and access control
+8. **Analytics** - Reports and dashboards
+9. **Integration** - External service connections
+10. **Mobile** - Responsive design demonstration
+
+Each screenshot includes:
+- **Precise navigation steps** for reproducibility
+- **Technical context** explaining the component
+- **Business value** demonstration
+- **Consistent formatting** for professional presentation
