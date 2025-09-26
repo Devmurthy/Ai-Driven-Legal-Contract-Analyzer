@@ -1,6 +1,6 @@
 # AI Legal Contract Analyzer — Salesforce
-Legal Contract Analyzer Project Phases
-Phase 1: Project Overview & Requirement Gathering
+**Legal Contract Analyzer Project Phases**
+**Phase 1: Project Overview & Requirement Gathering**
 
 Define project purpose and business value
 
@@ -8,15 +8,15 @@ Identify stakeholders and beneficiary users
 
 Outline objectives such as automated clause extraction, risk analysis, AI negotiation, and compliance features
 
-Phase 2: Data Model Design
-
+**Phase 2: Data Model Design
+**
 Define custom Salesforce objects: Contract, Clause, NegotiationSuggestion
 
 Establish master-detail relationships and lookups
 
 Configure validation rules and picklists for statuses, risk levels, clause types
 
-Phase 3: Business Logic Implementation
+**Phase 3: Business Logic Implementation**
 
 Develop Apex classes and services: ContractAnalysisService, AINegotiationService, StatusNotificationService
 
@@ -24,7 +24,7 @@ Implement triggers: ContractStatusTrigger, ClauseStatusTrigger
 
 Automate status updates, risk scoring, AI negotiation suggestions generation
 
-Phase 4: User Interface & Lightning Web Components (LWC)
+**Phase 4: User Interface & Lightning Web Components (LWC)**
 
 Design and develop LWCs such as contractDashboard to display KPIs and risk charts
 
@@ -32,7 +32,7 @@ Create page layouts and tabs for Contracts, Clauses, Suggestions
 
 Provide a rich, interactive experience for users
 
-Phase 5: Testing & Validation
+**Phase 5: Testing & Validation**
 
 Write comprehensive Apex test classes covering services, triggers, and controllers
 
@@ -40,7 +40,7 @@ Perform UI integration testing (LWC wiring with Apex)
 
 Achieve high org-wide Apex test coverage (81%+)
 
-Phase 6: Automation & Notifications
+**Phase 6: Automation & Notifications**
 
 Configure platform events (StatusChangeEvent) for real-time notifications
 
@@ -48,19 +48,19 @@ Develop email templates for status change alerts and negotiation messages
 
 Design record-triggered flows for notifying stakeholders optionally
 
-Phase 7: Reporting & Dashboards
+**Phase 7: Reporting & Dashboards**
 
 Create reports on contract risks, clause distributions, and negotiation statuses
 
 Build dashboards for legal analytics and management overview
 
-Phase 8: Deployment & Documentation
+**Phase 8: Deployment & Documentation**
 
 Prepare change sets or SFDX deployments
 
 Document architecture, data model, business logic, and user guides
 
-Phase 9: Future Enhancements Planning
+**Phase 9: Future Enhancements Planning**
 
 Plan advanced AI integrations for natural language processing and risk scoring
 
