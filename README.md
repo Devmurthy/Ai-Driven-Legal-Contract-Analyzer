@@ -1,5 +1,6 @@
 # AI Legal Contract Analyzer — Salesforce
 **Legal Contract Analyzer Project Phases**
+
 **Phase 1: Project Overview & Requirement Gathering**
 
 Define project purpose and business value
@@ -8,8 +9,7 @@ Identify stakeholders and beneficiary users
 
 Outline objectives such as automated clause extraction, risk analysis, AI negotiation, and compliance features
 
-**Phase 2: Data Model Design
-**
+**Phase 2: Data Model Design**
 Define custom Salesforce objects: Contract, Clause, NegotiationSuggestion
 
 Establish master-detail relationships and lookups
